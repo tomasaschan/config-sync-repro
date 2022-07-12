@@ -36,14 +36,7 @@ which does all of the below setup steps for you.
 ## Observing errors
 
 * Resource fights about nested syncs happen whenever there is a new commit.
-
-  In order to observe this error, you'll have to modify the git config in the sync resources to point to a repo you control, e.g. by [forking this repo](https://github.com/tomasaschan/config-sync-repro/fork) and replacing the repo url with the url to your own:
-  ```bash
-  # this works with bash on linux. adjust to your os, or manually replace the git url everywhere in the repo to test
-  export URL_TO_YOUR_CLONE=https://github.com/your-username/config-sync-repro
-  git grep --files-with-matches  https://github.com | xargs -n1 sed -i "s%https://github.com/tomasaschan/config-sync-repro%$URL_TO_YOUR_CLONE%"
-  ```
-  Once you have done that, push a commit and observe the logs in the `reconciler-manager` pod: there are error logs about not being able to apply a sync resource, which shouldn't happen since there's no overlapping config:
+  After running for a while, Config Sync apparently starts fighting with itself over resources. Observe the logs in the `reconciler-manager` pod: there are error logs about not being able to apply a sync resource, which shouldn't happen since there's no overlapping config:
   ```sh
   kubectl logs -n config-management-system -lapp=reconciler-manager -c reconciler-manager -f
   ```
