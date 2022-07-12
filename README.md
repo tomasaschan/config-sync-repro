@@ -35,7 +35,7 @@ which does all of the below setup steps for you.
 
 ## Observing errors
 
-* Resource fights about nested syncs happen whenever there is a new commit.
+* **Resource fights about nested syncs**
   After running for a while, Config Sync apparently starts fighting with itself over resources. Observe the logs in the `reconciler-manager` pod: there are error logs about not being able to apply a sync resource, which shouldn't happen since there's no overlapping config:
   ```sh
   kubectl logs -n config-management-system -lapp=reconciler-manager -c reconciler-manager -f
