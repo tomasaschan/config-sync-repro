@@ -7,3 +7,5 @@ if ! kind get clusters | grep ^config-sync-repro$ >/dev/null; then
 fi
 
 gsutil cat gs://config-management-release/released/1.12.0/config-management-operator.yaml | kubectl apply -f -
+
+kubectl apply -f config-management-setup

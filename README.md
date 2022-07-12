@@ -4,21 +4,26 @@ This repo tries to capture a bunch of issues we're currently having with Config 
 
 To run, please follow these instructions:
 
-## 1. Set up a local kind environment
+## Running this repro
 
 This can be done manually, or using this helper script
-
 ```sh
-./setup-env.sh # or just kind create cluster
+./repro.sh
 ```
 which does all of the below setup steps for you.
 
-1.1 Set up a kind cluster:
-    ```sh
-    kind create cluster
-    ```
+1. Set up a kind cluster:
+   ```sh
+   kind create cluster
+   ```
+   This will automatically switch your kubecontext to the new local cluster.
 
-1.2 Install Config Sync 1.12
-    ```sh
-    gsutil cat gs://config-management-release/released/1.12.0/config-management-operator.yaml | kubectl apply -f -
-    ```
+2. Install Config Sync 1.12
+   ```sh
+   gsutil cat gs://config-management-release/released/1.12.0/config-management-operator.yaml | kubectl apply -f -
+   ```
+
+3. Activate Config Sync
+   ```sh
+   kubectl apply -f config-management-setup
+   ```
