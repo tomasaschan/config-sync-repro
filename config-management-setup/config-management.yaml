@@ -5,4 +5,5 @@ metadata:
   namespace: config-management-system
 spec:
   clusterName: config-sync-repro
+  sourceFormat: unstructured
   enableMultiRepo: true
