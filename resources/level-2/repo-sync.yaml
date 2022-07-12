@@ -1,0 +1,12 @@
+apiVersion: configsync.gke.io/v1beta1
+kind: RepoSync
+metadata:
+  namespace: level-3
+  name: repo-sync
+spec:
+  git:
+    auth: none
+    branch: main
+    dir: resources/level-3
+    repo: https://github.com/tomasaschan/config-sync-repro
+  sourceFormat: unstructured

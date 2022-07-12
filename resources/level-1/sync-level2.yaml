@@ -1,0 +1,20 @@
+apiVersion: configsync.gke.io/v1beta1
+kind: RootSync
+metadata:
+  namespace: config-management-system
+  name: level-2
+spec:
+  git:
+    auth: none
+    branch: main
+    dir: resources/level-2
+    repo: https://github.com/tomasaschan/config-sync-repro
+  sourceFormat: unstructured
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: testing
+  namespace: testing
+data:
+  foo: bar
