@@ -40,3 +40,10 @@ which does all of the below setup steps for you.
   ```sh
   kubectl logs -n config-management-system -lapp=reconciler-manager -c reconciler-manager -f
   ```
+
+## Cleaning up
+
+When you're done, or if you want to start over, you can just destroy the kind cluster (and remove your associated kube context)
+```sh
+kind delete cluster --name config-sync-repro
+```
