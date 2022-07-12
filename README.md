@@ -14,7 +14,7 @@ which does all of the below setup steps for you.
 
 1. Set up a kind cluster:
    ```sh
-   kind create cluster
+   kind create cluster --name config-sync-repro
    ```
    This will automatically switch your kubecontext to the new local cluster.
 
