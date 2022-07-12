@@ -25,5 +25,10 @@ which does all of the below setup steps for you.
 
 3. Activate Config Sync
    ```sh
-   kubectl apply -f config-management-setup
+   kubectl apply -f setup/config-management.yaml
+   ```
+
+4. Once Config Sync has created the `RootSync` CRD in the cluster, create one that points to the `resources/level-1` folder of this repo. That will create a chain of resources, and start reproducing some of the errors.
+   ```sh
+   kubectl apply -f setup/root-sync.yaml
    ```
